@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="am">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ministry Of Health Ethiopia - Digital Government Platform ®</title>
+    <!-- Font Awesome Icons & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic:wght@400;600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-blue: #0b3a75;
+            --secondary-blue: #1d5cb0;
+            --accent-green: #00a859;
+            --light-bg: #f8f9fa;
+            --dark-text: #1a202c;
+            --gray-text: #4a5568;
+            --border-color: #e2e8f0;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Noto Sans Ethiopic', sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+
+        /* Top Announcement Bar */
+        .announcement-bar {
+            background-color: #062349;
+            color: var(--white);
+            padding: 8px 8%;
+            font-size: 13px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .announcement-text span {
+            color: var(--accent-green);
+            font-weight: bold;
+        }
+
+        .top-right-links {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .lang-select {
+            background: transparent;
+            color: var(--white);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 4px;
+            padding: 4px 8px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .lang-select option {
+            color: #333;
+        }
+
+        /* Main Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 8%;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-emblem {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-blue);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .brand-text h2 {
+            font-size: 16px;
+            color: var(--primary-blue);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .brand-text p {
+            font-size: 11px;
+            color: var(--gray-text);
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-blue);
+        }
+
+        .btn-signin {
+            background-color: var(--primary-blue);
+            color: var(--white) !important;
+            padding: 8px 20px;
+            border-radius: 6px;
+            font-weight: 600 !important;
+            transition: background 0.3s !important;
+        }
+
+        .btn-signin:hover {
+            background-color: var(--secondary-blue) !important;
+        }
+
+        /* Hero Banner Section */
+        .hero {
+            background: linear-gradient(90deg, rgba(11, 58, 117, 0.95) 0%, rgba(29, 92, 176, 0.8) 100%), 
+                        url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1600&q=80') center/cover;
+            color: var(--white);
+            padding: 90px 8%;
+            text-align: left;
+        }
+
+        .hero-content {
+            max-width: 750px;
+        }
+
+        .hero-badge {
+            background: rgba(255,255,255,0.15);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            display: inline-block;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .hero-action-btns {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .btn-action-primary {
+            background-color: var(--accent-green);
+            color: var(--white);
+            padding: 12px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .btn-action-outline {
+            border: 2px solid var(--white);
+            color: var(--white);
+            padding: 12px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .hero-stats {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            opacity: 0.85;
+        }
+
+        /* Prime Minister Quote Section */
+        .quote-section {
+            background-color: var(--white);
+            padding: 50px 8%;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .quote-container {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            background: #f0f4f9;
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 5px solid var(--primary-blue);
+        }
+
+        .quote-icon {
+            font-size: 40px;
+            color: var(--secondary-blue);
+        }
+
+        .quote-text h3 {
+            font-size: 20px;
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+        }
+
+        .quote-text blockquote {
+            font-style: italic;
+            color: var(--gray-text);
+            margin-bottom: 8px;
+        }
+
+        .quote-author {
+            font-weight: 700;
+            color: var(--dark-text);
+            font-size: 14px;
+        }
+
+        /* Services Grid Section */
+        .services-section {
+            padding: 70px 8%;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 32px;
+            color: var(--primary-blue);
+            font-weight: 700;
+        }
+
+        .section-header p {
+            color: var(--gray-text);
+            font-size: 16px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            position: relative;
+            top: 0;
+        }
+
+        .service-card:hover {
+            top: -5px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            border-color: var(--secondary-blue);
+        }
+
+        .card-icon-wrapper {
+            width: 60px;
+            height: 60px;
+            background: #eaf2ff;
+            color: var(--secondary-blue);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+            color: var(--dark-text);
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: var(--gray-text);
+            font-size: 14px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .card-link {
+            color: var(--secondary-blue);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #061933;
+            color: var(--white);
+            padding: 60px 8% 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: var(--white);
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 30px;
+            height: 2px;
+            background-color: var(--accent-green);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #a0aec0;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white);
+        }
+
+        .contact-info p {
+            color: #a0aec0;
+            font-size: 14px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            color: #a0aec0;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 28px; }
+            .quote-container { flex-direction: column; }
+            .announcement-bar { flex-direction: column; gap: 5px; text-align: center; }
+            .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Announcement Bar -->
+    <div class="announcement-bar">
+        <div class="announcement-text">
+            <span id="announcement-title">Ministry Of Health Ethiopia</span> - <span id="announcement-sub">Digital Government Platform ®</span>
+        </div>
+        <div class="top-right-links">
+            <select class="lang-select" id="languageSelector" onchange="changeLanguage()">
+                <option value="am" selected>አማርኛ</option>
+                <option value="en">English</option>
+                <option value="om">Afaan Oromoo</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Main Navigation Header -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="brand-logo">
+                <div class="logo-emblem">
+                    <i class="fa-solid fa-hospital-user"></i>
+                </div>
+                <div class="brand-text">
+                    <h2 id="logo-title">የጤና ሚኒስቴር - ኢትዮጵያ</h2>
+                    <p id="logo-sub">MINISTRY OF HEALTH - ETHIOPIA</p>
+                </div>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="#" id="nav-resources">መረጃዎች</a></li>
+                <li><a href="#" id="nav-services">ኢ-አገልግሎት</a></li>
+                <li><a href="#" id="nav-volunteer">በጎ ፈቃድ</a></li>
+                <li><a href="#" id="nav-visit">ጎብኚዎች</a></li>
+                <li><a href="#" id="nav-contact">ግንኙነት</a></li>
+                <li><a href="#" class="btn-signin" id="nav-signin">ይግቡ</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge" id="hero-badge">ጤናማ ዜጋ ለበለፀገች ሀገር!</div>
+            <h1 id="hero-title">የጤና ሚኒስቴር ዲጂታል የመንግስት መድረክ</h1>
+            <p id="hero-desc">ለቀልጣፋ የመንግስት አሰራር እና ለህዝብ አገልግሎቶች የተዘጋጀ የተቀናጀ የዲጂታል መድረክ።</p>
+            
+            <div class="hero-action-btns">
+                <a href="#services" class="btn-action-primary" id="btn-explore">አገልግሎቶችን ይመልከቱ</a>
+                <a href="#" class="btn-action-outline" id="btn-register">አሁኑኑ ይመዝገቡ</a>
+            </div>
+
+            <div class="hero-stats">
+                <i class="fa-solid fa-users"></i>
+                <span id="hero-stats-text"><strong>4,846 +</strong> አባላት ተቀላቅለዋል</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section (Digital Ethiopia 2030) -->
+    <section class="quote-section">
+        <div class="quote-container">
+            <div class="quote-icon">
+                <i class="fa-solid fa-quote-left"></i>
+            </div>
+            <div class="quote-text">
+                <h3 id="quote-title">ዲጂታል ኢትዮጵያ 2030</h3>
+                <blockquote id="quote-body">
+                    “በዲጂታል ኢትዮጵያ 2030 ውስጥ እየተከናወኑ ያሉ ተግባራት ቀልጣፋ ቢሮክራሲ በመገንባት ከፍተኛ ተጽዕኖ ፈጣሪ ስልቶችን ለማድረስ ከተቀመጠው የመደመር መንግስት ዋና አላማ ጋር የተያያዙ ናቸው።”
+                </blockquote>
+                <div class="quote-author" id="quote-author">— ክቡር ጠቅላይ ሚኒስትር ዶ/ር አብይ አህመድ</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Grid Section -->
+    <section class="services-section" id="services">
+        <div class="section-header">
+            <h2 id="services-title">ምንጮች እና ዲጂታል አገልግሎቶች</h2>
+            <p id="services-sub">የተቀናጁ የህዝብ ዲጂታል አገልግሎቶችን እና ኦፊሴላዊ መረጃዎችን ይመልከቱ።</p>
+        </div>
+
+        <div class="grid-container">
+            
+            <!-- Card 1 -->
+            <div class="service-card">
+                <div class="card-icon-wrapper"><i class="fa-solid fa-laptop-medical"></i></div>
+                <h3 id="card1-title">ኢ-አገልግሎት (eService)</h3>
+                <p id="card1-desc">በተቀናጀ የዲጂታል አገልግሎት መድረካችን በማንኛውም ጊዜ እና ቦታ አገልግሎቶቻችንን በቀላሉ ማግኘት ይችላሉ።</p>
+                <a href="#" class="card-link"><span id="card1-btn">አገልግሎቱን ያግኙ</span> <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="service-card">
+                <div class="card-icon-wrapper"><i class="fa-solid fa-hand-holding-heart"></i></div>
+                <h3 id="card2-title">በጎ ፈቃድ (Volunteer)</h3>
+                <p id="card2-desc">በህብረተሰቡ ውስጥ ጤናን እና ደህንነትን ለማስፋፋት ከተሰጡ በጎ ፈቃደኞቻችን ጋር ይቀላቀሉ።</p>
+                <a href="#" class="card-link"><span id="card2-btn">ተሳታፊ ይሁኑ</span> <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="service-card">
+                <div class="card-icon-wrapper"><i class="fa-solid fa-book-bookmark"></i></div>
+                <h3 id="card3-title">ዲጂታል ቤተ-መጻሕፍት (eLibrary)</h3>
+                <p id="card3-desc">ኦፊሴላዊ የጤና ፖሊሲዎችን፣ ህትመቶችን፣ መመሪያዎችን እና ብሄራዊ ደረጃዎችን ለማግኘት ማዕከላዊ ማከማቻ።</p>
+                <a href="#" class="card-link"><span id="card3-btn">መጻሕፍትን ይፈልጉ</span> <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="service-card">
+                <div class="card-icon-wrapper"><i class="fa-solid fa-briefcase"></i></div>
+                <h3 id="card4-title">የሥራ ዕድሎች (JobBoard)</h3>
+                <p id="card4-desc">በጤና ሚኒስቴር ውስጥ የሥራ ዕድሎችን ያግኙ እና ያመልክቱ።</p>
+                <a href="#" class="card-link"><span id="card4-btn">ክፍት ቦታዎችን ይመልከቱ</span> <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="service-card">
+                <div class="card-icon-wrapper"><i class="fa-solid fa-id-card-clip"></i></div>
+                <h3 id="card5-title">የጎብኚዎች ቀጠሮ (Visitor)</h3>
+                <p id="card5-desc">የጤና ሚኒስቴር ዋና መስሪያ ቤትን ለመጎብኘት ወይም ከኃላፊዎች ጋር ለመገናኘት ቀጠሮ ይያዙ።</p>
+                <a href="#" class="card-link"><span id="card5-btn">ቀጠሮ ይያዙ</span> <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="service-card">
+                <div class="card-icon-wrapper"><i class="fa-solid fa-comments"></i></div>
+                <h3 id="card6-title">የቅሬታ ማስተናገጃ (Grievance)</h3>
+                <p id="card6-desc">ከጤና አገልግሎቶች ጋር የተያያዙ ስጋቶችዎን እና ቅሬታዎችዎን የሚያቀርቡበት ዘመናዊ መድረክ።</p>
+                <a href="#" class="card-link"><span id="card6-btn">አስተያየት ያስገቡ</span> <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Ministry Of Health ®</h4>
+                <p style="font-size: 13px; color: #a0aec0;" id="foot-slogan">ጤናማ ዜጋ ለበለፀገች ሀገር</p>
+                <p style="font-size: 12px; color: #718096; margin-top: 10px;" id="foot-office">የአይሲቲ መመሪያ</p>
+            </div>
+            
+            <div class="footer-col">
+                <h4 id="foot-res-title">ምንጮች</h4>
+                <ul>
+                    <li><a href="#" id="f-link1">ኢ-አገልግሎት</a></li>
+                    <li><a href="#" id="f-link2">የጎብኚዎች አገልግሎት</a></li>
+                    <li><a href="#" id="f-link3">ዲጂታል ቤተ-መጻሕፍት</a></li>
+                    <li><a href="#" id="f-link4">የቅሬታ ማስተናገጃ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4 id="foot-quick-title">ፈጣን ሊንኮች</h4>
+                <ul>
+                    <li><a href="#" id="f-link5">የበጎ ፈቃድ ፕሮግራም</a></li>
+                    <li><a href="#" id="f-link6">ሥራዎች እና ሙያዎች</a></li>
+                    <li><a href="#" id="f-link7">ክስተቶች እና ጽሁፎች</a></li>
+                    <li><a href="#" id="f-link8">የውል እና ሁኔታዎች ፖሊሲ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col contact-info">
+                <h4 id="foot-contact-title">ያግኙን</h4>
+                <p><i class="fa-solid fa-phone"></i> +251 115 517011</p>
+                <p><i class="fa-solid fa-envelope"></i> ict@moh.gov.et</p>
+                <p><i class="fa-solid fa-location-dot"></i> <span id="foot-address">አዲስ አበባ፣ ኢትዮጵያ</span></p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div id="footer-copy">&copy; 2026 የጤና ሚኒስቴር ኢትዮጵያ። መብቱ በህግ የተጠበቀ ነው።</div>
+            <div>ICT Executive Directorate Platform</div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Dynamic Language Switching -->
+    <script>
+        const translations = {
+            am: {
+                announcementTitle: "የጤና ሚኒስቴር ኢትዮጵያ",
+                announcementSub: "ዲጂታል የመንግስት መድረክ ®",
+                logoTitle: "የጤና ሚኒስቴር - ኢትዮጵያ",
+                logoSub: "MINISTRY OF HEALTH - ETHIOPIA",
+                navResources: "መረጃዎች",
+                navServices: "ኢ-አገልግሎት",
+                navVolunteer: "በጎ ፈቃድ",
+                navVisit: "ጎብኚዎች",
+                navContact: "ግንኙነት",
+                navSignin: "ይግቡ",
+                heroBadge: "ጤናማ ዜጋ ለበለፀገች ሀገር!",
+                heroTitle: "የጤና ሚኒስቴር ዲጂታል የመንግስት መድረክ",
+                heroDesc: "ለቀልጣፋ የመንግስት አሰራር እና ለህዝብ አገልግሎቶች የተዘጋጀ የተቀናጀ የዲጂታል መድረክ።",
+                btnExplore: "አገልግሎቶችን ይመልከቱ",
+                btnRegister: "አሁኑኑ ይመዝገቡ",
+                heroStatsText: "<strong>4,846 +</strong> አባላት ተቀላቅለዋል",
+                quoteTitle: "ዲጂታል ኢትዮጵያ 2030",
+                quoteBody: "“በዲጂታል ኢትዮጵያ 2030 ውስጥ እየተከናወኑ ያሉ ተግባራት ቀልጣፋ ቢሮክራሲ በመገንባት ከፍተኛ ተጽዕኖ ፈጣሪ ስልቶችን ለማድረስ ከተቀመጠው የመደመር መንግስት ዋና አላማ ጋር የተያያዙ ናቸው።”",
+                quoteAuthor: "— ክቡር ጠቅላይ ሚኒስትር ዶ/ር አብይ አህመድ",
+                servicesTitle: "ምንጮች እና ዲጂታል አገልግሎቶች",
+                servicesSub: "የተቀናጁ የህዝብ ዲጂታል አገልግሎቶችን እና ኦፊሴላዊ መረጃዎችን ይመልከቱ።",
+                card1Title: "ኢ-አገልግሎት (eService)",
+                card1Desc: "በተቀናጀ የዲጂታል አገልግሎት መድረካችን በማንኛውም ጊዜ እና ቦታ አገልግሎቶቻችንን በቀላሉ ማግኘት ይችላሉ።",
+                card1Btn: "አገልግሎቱን ያግኙ",
+                card2Title: "በጎ ፈቃድ (Volunteer)",
+                card2Desc: "በህብረተሰቡ ውስጥ ጤናን እና ደህንነትን ለማስፋፋት ከተሰጡ በጎ ፈቃደኞቻችን ጋር ይቀላቀሉ።",
+                card2Btn: "ተሳታፊ ይሁኑ",
+                card3Title: "ዲጂታል ቤተ-መጻሕፍት (eLibrary)",
+                card3Desc: "ኦፊሴላዊ የጤና ፖሊሲዎችን፣ ህትመቶችን፣ መመሪያዎችን እና ብሄራዊ ደረጃዎችን ለማግኘት ማዕከላዊ ማከማቻ።",
+                card3Btn: "መጻሕፍትን ይፈልጉ",
+                card4Title: "የሥራ ዕድሎች (JobBoard)",
+                card4Desc: "በጤና ሚኒስቴር ውስጥ የሥራ ዕድሎችን ያግኙ እና ያመልክቱ።",
+                card4Btn: "ክፍት ቦታዎችን ይመልከቱ",
+                card5Title: "የጎብኚዎች ቀጠሮ (Visitor)",
+                card5Desc: "የጤና ሚኒስቴር ዋና መስሪያ ቤትን ለመጎብኘት ወይም ከኃላፊዎች ጋር ለመገናኘት ቀጠሮ ይያዙ።",
+                card5Btn: "ቀጠሮ ይያዙ",
+                card6Title: "የቅሬታ ማስተናገጃ (Grievance)",
+                card6Desc: "ከጤና አገልግሎቶች ጋር የተያያዙ ስጋቶችዎን እና ቅሬታዎችዎን የሚያቀርቡበት ዘመናዊ መድረክ።",
+                card6Btn: "አስተያየት ያስገቡ",
+                footSlogan: "ጤናማ ዜጋ ለበለፀገች ሀገር",
+                footOffice: "የአይሲቲ መመሪያ",
+                footResTitle: "ምንጮች",
+                fLink1: "ኢ-አገልግሎት",
+                fLink2: "የጎብኚዎች አገልግሎት",
+                fLink3: "ዲጂታል ቤተ-መጻሕፍት",
+                fLink4: "የቅሬታ ማስተናገጃ",
+                footQuickTitle: "ፈጣን ሊንኮች",
+                fLink5: "የበጎ ፈቃድ ፕሮግራም",
+                fLink6: "ሥራዎች እና ሙያዎች",
+                fLink7: "ክስተቶች እና ጽሁፎች",
+                fLink8: "የውል እና ሁኔታዎች ፖሊሲ",
+                footContactTitle: "ያግኙን",
+                footAddress: "አዲስ አበባ፣ ኢትዮጵያ",
+                footerCopy: "&copy; 2026 የጤና ሚኒስቴር ኢትዮጵያ። መብቱ በህግ የተጠበቀ ነው።"
+            },
+            en: {
+                announcementTitle: "Ministry Of Health Ethiopia",
+                announcementSub: "Digital Government Platform ®",
+                logoTitle: "Ministry Of Health - Ethiopia",
+                logoSub: "MINISTRY OF HEALTH - ETHIOPIA",
+                navResources: "Resources",
+                navServices: "eServices",
+                navVolunteer: "Volunteer",
+                navVisit: "Visit Us",
+                navContact: "Contact Us",
+                navSignin: "Sign In",
+                heroBadge: "Healthier Citizens For Prosperous Nation !",
+                heroTitle: "Ministry Of Health Digital Government Platform",
+                heroDesc: "A unified digital government platform for efficient government operations and public services.",
+                btnExplore: "Explore Our Services",
+                btnRegister: "Register Now",
+                heroStatsText: "<strong>4,846 +</strong> Members Joined",
+                quoteTitle: "Digital Ethiopia 2030",
+                quoteBody: "“The activities underway within Digital Ethiopia 2030 are intrinsically linked to the Medemer government's overarching objective of delivering high-impact strategies via a lean and efficient bureaucracy.”",
+                quoteAuthor: "— Honorable Prime Minister Dr. Abiy Ahmed",
+                servicesTitle: "Resources & Digital Services",
+                servicesSub: "Explore our integrated public digital services and official resources.",
+                card1Title: "eService",
+                card1Desc: "You can easily access our services anytime, anywhere using our integrated digital service platform.",
+                card1Btn: "Access Platform",
+                card2Title: "Volunteer",
+                card2Desc: "Join our dedicated volunteers in promoting health and wellness across the community. Together, we can foster a healthier future.",
+                card2Btn: "Join Program",
+                card3Title: "eLibrary",
+                card3Desc: "A centralized digital repository for accessing official health policies, publications, guidelines, and national standards.",
+                card3Btn: "Explore Books",
+                card4Title: "JobBoard",
+                card4Desc: "Discover and apply for career opportunities within the Ministry of Health to contribute to enhancing healthcare services.",
+                card4Btn: "View Openings",
+                card5Title: "Visitor Appointment",
+                card5Desc: "Make an appointment to visit the Ministry of Health headquarters or arrange meetings with ministry officials.",
+                card5Btn: "Book Appointment",
+                card6Title: "Grievance Service",
+                card6Desc: "Grievance Redressing Service - Access a streamlined platform to voice your concerns and complaints related to services.",
+                card6Btn: "Submit Feedback",
+                footSlogan: "Health Citizens For Prosperous Nation",
+                footOffice: "ICT Executive Office",
+                footResTitle: "Resources",
+                fLink1: "eService",
+                fLink2: "Visitor Service",
+                fLink3: "Digital Library",
+                fLink4: "Grievance Redress",
+                footQuickTitle: "Quick Links",
+                fLink5: "Volunteer Program",
+                fLink6: "Careers & Jobs",
+                fLink7: "Events & Articles",
+                fLink8: "Terms & Conditions Policy",
+                footContactTitle: "Contact Us",
+                footAddress: "Addis Ababa, Ethiopia",
+                footerCopy: "&copy; 2026 Ministry Of Health Ethiopia. All rights reserved."
+            },
+            om: {
+                announcementTitle: "Ministeera Fayyaa Itoophiyaa",
+                announcementSub: "Madaala Mootummaa Dijiitaalaa ®",
+                logoTitle: "Ministeera Fayyaa - Itoophiyaa",
+                logoSub: "MINISTRY OF HEALTH - ETHIOPIA",
+                navResources: "Qabeenya",
+                navServices: "Tajaajila-e",
+                navVolunteer: "Fedhiidhaan",
+                navVisit: "Nu Daawwadhaa",
+                navContact: "Nu Quunnamaa",
+                navSignin: "Seenaa",
+                heroBadge: "Lammii Fayyaa Qabu Biyya Badhaatuuf!",
+                heroTitle: "Madaala Mootummaa Dijiitaalaa Ministeera Fayyaa",
+                heroDesc: "Hoojii mootummaa si'aawaa fi tajaajila ummataaf madaala dijiitaalaa qindaa'e.",
+                btnExplore: "Tajaajila Nuu Ilaalaa",
+                btnRegister: "Amma Galmeeffamaa",
+                heroStatsText: "<strong>4,846 +</strong> Miseensonni Makamaniiru",
+                quoteTitle: "Itoophiyaa Dijiitaalaa 2030",
+                quoteBody: "“Sochiiwwan Itoophiyaa Dijiitaalaa 2030 keessatti geggeeffamaa jiran kaayyoo guddaa mootummaa Medemer waliin qindaawanii jiru.”",
+                quoteAuthor: "— Kabajamoo Muummicha Ministeeraa Dr. Abiy Ahimad",
+                servicesTitle: "Qabeenya fi Tajaajila Dijiitaalaa",
+                servicesSub: "Tajaajiloota dijiitaalaa uummataa qindaawaniifi odeeffannoowwan uummataa ilaalaa.",
+                card1Title: "Tajaajila-e (eService)",
+                card1Desc: "Platformii tajaajila dijiitaalaa keenyaatiin yeroo fi bakka kamittuu tajaajila keenya salphaatti argachuu dhesso.",
+                card1Btn: "Tajaajila Argadhaa",
+                card2Title: "Fedhiidhaan (Volunteer)",
+                card2Desc: "Fayyaa fi nageenya hawaasa keessatti babal'isuuf fedhiidhaan namoota nu waliin hojjetንnitti makamaa.",
+                card2Btn: "Hirmaataa Izaa",
+                card3Title: "Mana Kitaabaa Dijiitaalaa (eLibrary)",
+                card3Desc: "Imaammata fayyaa, maxxansawwan, qajeelfamoota fi standards argachuuf kuusaa giddugaleessaa.",
+                card3Btn: "Kitaabota Barbaadaa",
+                card4Title: "Carraa Hojii (JobBoard)",
+                card4Desc: "Ministeera Fayyaa keessatti carraawwan hojii argadhaa fi iyyadhaa.",
+                card4Btn: "Hojiiwwan Banamaa Ilaalaa",
+                card5Title: "Beellama Daawwattootaa (Visitor)",
+                card5Desc: "Waajjira muummee Ministeera Fayyaa daawwachuuf ykn qondaaltota waliin walጋ'uuf beellama qabadhaa.",
+                card5Btn: "Beellama Qabadhaa",
+                card6Title: "Tajaajila Komii (Grievance)",
+                card6Desc: "Tajaajila komii hiikuu - Komii fi yaada keessan tajaajila fayyaa waliin walqabatu dhiyeessuuf.",
+                card6Btn: "Yaada Dhiyeessaa",
+                footSlogan: "Lammii Fayyaa Qabu Biyya Badhaatuuf",
+                footOffice: "Waajjira Raawwachiisaa ICT",
+                footResTitle: "Qabeenya",
+                fLink1: "Tajaajila-e",
+                fLink2: "Tajaajila Daawwattootaa",
+                fLink3: "Mana Kitaabaa Dijiitaalaa",
+                fLink4: "Tajaajila Komii",
+                footQuickTitle: "Loomawwan Saffisaa",
+                fLink5: "Sagantaa Fedhiidhaan",
+                fLink6: "Hojii fi Ogummaa",
+                fLink7: "Taateewwan fi Barruulee",
+                fLink8: "Imaammata Haala fi Seeraa",
+                footContactTitle: "Nu Quunnamaa",
+                footAddress: "Finfinnee, Itoophiyaa",
+                footerCopy: "&copy; 2026 Ministeera Fayyaa Itoophiyaa. Mirgi maxxansaa seeraan eegamaa ነው."
+            }
+        };
+
+        function changeLanguage() {
+            const selectedLang = document.getElementById('languageSelector').value;
+            const langData = translations[selectedLang];
+
+            // Map keys to element IDs
+            const map = {
+                'announcement-title': langData.announcementTitle,
+                'announcement-sub': langData.announcementSub,
+                'logo-title': langData.logoTitle,
+                'logo-sub': langData.logoSub,
+                'nav-resources': langData.navResources,
+                'nav-services': langData.navServices,
+                'nav-volunteer': langData.navVolunteer,
+                'nav-visit': langData.navVisit,
+                'nav-contact': langData.navContact,
+                'nav-signin': langData.navSignin,
+                'hero-badge': langData.heroBadge,
+                'hero-title': langData.heroTitle,
+                'hero-desc': langData.heroDesc,
+                'btn-explore': langData.btnExplore,
+                'btn-register': langData.btnRegister,
+                'hero-stats-text': langData.heroStatsText,
+                'quote-title': langData.quoteTitle,
+                'quote-body': langData.quoteBody,
+                'quote-author': langData.quoteAuthor,
+                'services-title': langData.servicesTitle,
+                'services-sub': langData.servicesSub,
+                'card1-title': langData.card1Title,
+                'card1-desc': langData.card1Desc,
+                'card1-btn': langData.card1Btn,
+                'card2-title': langData.card2Title,
+                'card2-desc': langData.card2Desc,
+                'card2-btn': langData.card2Btn,
+                'card3-title': langData.card3Title,
+                'card3-desc': langData.card3Desc,
+                'card3-btn': langData.card3Btn,
+                'card4-title': langData.card4Title,
+                'card4-desc': langData.card4Desc,
+                'card4-btn': langData.card4Btn,
+                'card5-title': langData.card5Title,
+                'card5-desc': langData.card5Desc,
+                'card5-btn': langData.card5Btn,
+                'card6-title': langData.card6Title,
+                'card6-desc': langData.card6Desc,
+                'card6-btn': langData.card6Btn,
+                'foot-slogan': langData.footSlogan,
+                'foot-office': langData.footOffice,
+                'foot-res-title': langData.footResTitle,
+                'f-link1': langData.fLink1,
+                'f-link2': langData.fLink2,
+                'f-link3': langData.fLink3,
+                'f-link4': langData.fLink4,
+                'foot-quick-title': langData.footQuickTitle,
+                'f-link5': langData.fLink5,
+                'f-link6': langData.fLink6,
+                'f-link7': langData.fLink7,
+                'f-link8': langData.fLink8,
+                'foot-contact-title': langData.footContactTitle,
+                'foot-address': langData.footAddress,
+                'footer-copy': langData.footerCopy
+            };
+
+            for (let id in map) {
+                const el = document.getElementById(id);
+                if (el) {
+                    el.innerHTML = map[id];
+                }
+            }
+        }
+    </script>
+</body>
+</html>
