@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Ministry Of Health Ethiopia - Digital Government Platform &#174;</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" type="image/x-icon" href="/assets/dgovlogo-775cdc6ea38f4110c93010afc6acf98e9a061629d9caf7dde9b0d3ec1ee2da86.png" />
+
+  <link rel="stylesheet" href="/assets/acom/index-d37bf92b1f10cddc4f9d39b9c639f651122d6b6aeb24a779c7c235efa890fcb2.css" media="all" data-turbolinks-track="reload" />
+  <style>
+
+      /* Spin animation */
+      @-webkit-keyframes hero-spin {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes hero-spin {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      .hero-animation-spin {
+        -webkit-animation: hero-spin 35s linear infinite;
+        animation: hero-spin 35s linear infinite;
+      }
+
+      /* Fade animation */
+      @-webkit-keyframes hero-fade {
+        0%, 100% { opacity: 0 }
+        50% { opacity: 1 }
+      }
+      @keyframes hero-fade {
+        0%, 100% { opacity: 0 }
+        50% { opacity: 1 }
+      }
+      .hero-animation-fade {
+        -webkit-animation: hero-fade 4s ease-in infinite;
+        animation: hero-fade 4s ease-in infinite;
+      }
+      .hero-animation-delay-1,
+      .hero-animation-delay-2,
+      .hero-animation-delay-3 {
+        opacity: 0;
+      }
+      .hero-animation-delay-1 { animation-delay: .75s; }
+      .hero-animation-delay-2 { animation-delay: 1.5s; }
+      .hero-animation-delay-3 { animation-delay: 2s; }
+
+      .cookie-consent-banner {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: #000;
+        color: #fff;
+        text-align: center;
+        padding: 1rem;
+        z-index: 9999;
+        transform: translateY(100%);
+        transition: transform 0.5s ease-out;
+      }
+
+      .cookie-consent-banner.show {
+        transform: translateY(0);
+      }
+
+      .rounded-4 {
+          border-radius: 0.75rem !important;
+      }
+
+      .page-loading {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all .2s .2s ease-in-out;
+        transition: all .2s .2s ease-in-out;
+        background-color: #05789E;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 9999;
+      }
+      .dark-mode .page-loading {
+        background-color: #05789E;
+      }
+      .page-loading.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .page-loading-inner {
+        position: absolute;
+        color: #fff;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -webkit-transition: opacity .2s ease-in-out;
+        transition: opacity .2s ease-in-out;
+        opacity: 0;
+      }
+      .page-loading.active > .page-loading-inner {
+        opacity: 1;
+      }
+      .page-loading-inner > span {
+        display: block;
+        font-size: 1rem;
+        font-weight: normal;
+        color: #fff;;
+      }
+      .dark-mode .page-loading-inner > span {
+        color: #fff;
+        opacity: .6;
+      }
+      .page-spinner {
+        color: #fff;
+        display: inline-block;
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-bottom: .75rem;
+        vertical-align: text-bottom;
+        border: .15em solid #fff;
+        border-right-color: transparent;
+        border-radius: 50%;
+        -webkit-animation: spinner .5s linear infinite;
+        animation: spinner .5s linear infinite;
+      }
+      .dark-mode .page-spinner {
+        border-color: rgba(255,255,255,.4);
+        border-right-color: transparent;
+      }
+      @-webkit-keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Slide-in animations */
+      .slide-in-left {
+        opacity: 0;
+        transform: translateX(-60px);
+        animation: slideInLeft 0.8s ease-out forwards;
+      }
+
+      .slide-in-right {
+        opacity: 0;
+        transform: translateX(60px);
+        animation: slideInRight 0.8s ease-out forwards;
+      }
+
+      .slide-in-up {
+        opacity: 0;
+        transform: translateY(60px);
+        animation: slideInUp 0.8s ease-out forwards;
+      }
+
+      .slide-in-down {
+        opacity: 0;
+        transform: translateY(-60px);
+        animation: slideInDown 0.8s ease-out forwards;
+      }
+
+      /* Animation delays */
+      .delay-1 { animation-delay: 0.1s; }
+      .delay-2 { animation-delay: 0.2s; }
+      .delay-3 { animation-delay: 0.3s; }
+      .delay-4 { animation-delay: 0.4s; }
+      .delay-5 { animation-delay: 0.5s; }
+      .delay-6 { animation-delay: 0.6s; }
+      .delay-7 { animation-delay: 0.7s; }
+      .delay-8 { animation-delay: 0.8s; }
+
+      @keyframes slideInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-60px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes slideInRight {
+        from {
+          opacity: 0;
+          transform: translateX(60px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes slideInUp {
+        from {
+          opacity: 0;
+          transform: translateY(60px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes slideInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-60px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Scroll-triggered animations */
+      .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      }
+
+      .animate-on-scroll.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Stagger children animations */
+      .stagger-children > * {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: slideInUp 0.6s ease-out forwards;
+      }
+
+      .stagger-children > *:nth-child(1) { animation-delay: 0.1s; }
+      .stagger-children > *:nth-child(2) { animation-delay: 0.2s; }
+      .stagger-children > *:nth-child(3) { animation-delay: 0.3s; }
+      .stagger-children > *:nth-child(4) { animation-delay: 0.4s; }
+      .stagger-children > *:nth-child(5) { animation-delay: 0.5s; }
+      .stagger-children > *:nth-child(6) { animation-delay: 0.6s; }
+    </style>
+    <script>
+      let mode = window.localStorage.getItem('mode'),
+          root = document.getElementsByTagName('html')[0];
+      if (mode !== null && mode === 'dark') {
+        root.classList.add('dark-mode');
+      } else {
+        root.classList.remove('dark-mode');
+      }
+    </script>
+    <script>
+      (function () {
+        window.onload = function () {
+          const preloader = document.querySelector('.page-loading');
+          preloader.classList.remove('active');
+          setTimeout(function () {
+            preloader.remove();
+          }, 1000);
+        };
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="page-loading active">
+      <div class="page-loading-inner">
+        <div class="page-spinner"></div><span>Loading ...</span>
+      </div>
+    </div>
+    <main class="page-wrapper">
+      <div class="mediumnavigation" style="top: 0px;">
+        <div class="code-block code-block-5" style="margin: 8px 0; clear: both;">
+          <a href="#">
+            <div class="metrics-banner">
+              <div id="metrics-embed">
+              <h6 class="animate-on-scroll">Healthier Citizens For Prosperous Nation !</h6>
+              </div>
+            </div>
+          </a>
+          <style>
+          .metrics-banner {padding: 8px 0px; background: #05789E;color: #ffffff;}
+          .metrics-banner h6 {color: #ffffff;text-align:center; margin: 0px !important;}
+          #metrics-embed {width: 65.5%; margin: 0px auto; display: block;}
+          .code-block-5 {margin-top: 0px !important; margin-bottom: 0px !important;}
+          .code-block-5 :hover {background: #034B64;}
+          .mediumnavigation {padding: 0px 0px 8px 0px;}
+          @media all and (max-width: 800px){
+          .mediumnavigation{box-shadow: none !important;} }
+          </style>
+        </div>
+      </div>
+      <header class="header navbar navbar-expand-lg navbar-light bg-light navbar-sticky">
+          <div class="container px-3">
+  <a class="navbar-brand pe-3 d-flex align-items-center" href="/?locale=en">
+    <img src="/assets/dgovlogo-775cdc6ea38f4110c93010afc6acf98e9a061629d9caf7dde9b0d3ec1ee2da86.png" width="40" height="40" />
+    <span class="d-none d-md-inline ms-2">MOH</span>
+    <span class="d-inline d-md-none ms-2">MOH</span>
+</a>  <div id="navbarNav" class="offcanvas offcanvas-end">
+    <div class="offcanvas-header border-bottom">
+      <h5 class="offcanvas-title">Menu</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item dropdown">
+          <a href="/eservice/guests" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-current="page"> Resources</a>
+          <div class="dropdown-menu p-0">
+            <div class="d-lg-flex">
+              <div class="mega-dropdown-column bg-position-center bg-repeat-0 bg-size-cover rounded-3 rounded-end-0" style="background-image: url(/assets/landing/megamenubg-673c2fb8ff242ec0bc259f924ff83d273a4dd8443eaeb14291c722d16811edae.jpg); margin: -1px;"></div>
+              <div class="mega-dropdown-column pt-lg-3 pb-lg-4">
+                <ul class="list-unstyled mb-0">
+                  <li>&nbsp;</li>
+                  <li><a class="dropdown-item" href="/en/elibrary/guests">» eLibrary</a></li>
+                  <li><a class="dropdown-item" href="/en/job_board/guests">» Career opportunities</a></li>
+                  <li><a class="dropdown-item" href="/en/grs/guests">» Grievance Redressing Service</a></li>
+                  <li><a class="dropdown-item" href="/en/upcoming_events">» Events</a></li>
+                  <li><a class="dropdown-item" href="/en/upcoming_events">» Articles</a></li>
+                  <li>&nbsp;</li>
+                  <li>&nbsp;</li>
+                  <li>&nbsp;</li>
+                  <li>&nbsp;</li>
+                </ul>
+              </div>
+              <div class="mega-dropdown-column pt-lg-3 pb-lg-4">
+                <ul class="list-unstyled mb-0">
+                  <li>&nbsp;</li>
+                  <li>&nbsp;</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/en/eservice/guests">
+            eServices
+</a>        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/en/volunteer/guests">
+            Volunteer
+</a>        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/en/visitor/guests">
+            Visit Us
+</a>        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/en/contact_us">
+            Contact Us
+</a>        </li>
+      </ul>
+    </div>
+      <div class="offcanvas-footer border-top">
+        <a class="btn btn-primary w-100" rel="noopener" href="/en/users/sign_in">
+          <i class="bx bx-log-in fs-4 lh-1 me-1"></i>
+          &nbsp; Log In
+</a>      </div>
+  </div>
+  
+  <!-- Theme Toggle -->
+  <div class="form-check form-switch mode-switch pe-lg-1 ms-auto me-2" data-bs-toggle="mode">
+    <input type="checkbox" class="form-check-input" id="theme-mode">
+  </div>
+  
+  <!-- Language Switcher - Mobile only (hidden on desktop) -->
+  <div class="dropdown me-2 d-lg-none">
+    <button class="btn btn-outline-secondary btn-sm fs-sm rounded dropdown-toggle"
+            type="button"
+            id="languageMenuMobile"
+            data-bs-toggle="dropdown"
+            aria-expanded="false">
+
+        <img alt="English" width="20" height="15" src="/assets/flags/us-d1266ca516b61ee907609b2c472118c88c86e219b04d7f493ba81e0b7b4cddc1.svg" />
+
+
+    </button>
+
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageMenuMobile">
+
+      <li>
+        <a class="dropdown-item" title="English" href="/en/static_pages/landing_page">
+          <img alt="English" width="16" height="12" class="me-2" src="/assets/flags/us-d1266ca516b61ee907609b2c472118c88c86e219b04d7f493ba81e0b7b4cddc1.svg" />
+          <span>English</span>
+</a>      </li>
+
+      <li>
+        <a class="dropdown-item" title="አማርኛ" href="/am/static_pages/landing_page">
+          <img alt="Amharic" width="16" height="12" class="me-2" src="/assets/flags/et-de962454375fdf95b8b98ea1202a7223f4e9ee6dd72882d908dc306d6138cc72.svg" />
+          <span>አማርኛ</span>
+</a>      </li>
+
+      <li>
+        <a class="dropdown-item" title="Afaan Oromoo" href="/or/static_pages/landing_page">
+          <img alt="Afaan Oromoo" width="16" height="12" class="me-2" src="/assets/flags/et-de962454375fdf95b8b98ea1202a7223f4e9ee6dd72882d908dc306d6138cc72.svg" />
+          <span>Afaan Oromoo</span>
+</a>      </li>
+
+    </ul>
+  </div>
+  
+  <!-- Navbar Toggler -->
+  <button type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  
+    <!-- Desktop Language Switcher -->
+    <div class="dropdown order-lg-3 d-none d-lg-inline-block">
+      <button class="btn btn-outline-secondary btn-sm fs-sm rounded dropdown-toggle"
+              type="button"
+              id="languageMenu"
+              data-bs-toggle="dropdown"
+              aria-expanded="false">
+
+          <img alt="English" width="20" height="15" src="/assets/flags/us-d1266ca516b61ee907609b2c472118c88c86e219b04d7f493ba81e0b7b4cddc1.svg" />
+          &nbsp; En
+
+
+      </button>
+
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageMenu">
+
+        <li>
+          <a class="dropdown-item" title="English" href="/en/static_pages/landing_page">
+            <img alt="English" width="16" height="12" class="me-2" src="/assets/flags/us-d1266ca516b61ee907609b2c472118c88c86e219b04d7f493ba81e0b7b4cddc1.svg" />
+            <span>English</span>
+</a>        </li>
+
+        <li>
+          <a class="dropdown-item" title="አማርኛ" href="/am/static_pages/landing_page">
+            <img alt="Amharic" width="16" height="12" class="me-2" src="/assets/flags/et-de962454375fdf95b8b98ea1202a7223f4e9ee6dd72882d908dc306d6138cc72.svg" />
+            <span>አማርኛ</span>
+</a>        </li>
+
+        <li>
+          <a class="dropdown-item" title="Afaan Oromoo" href="/or/static_pages/landing_page">
+            <img alt="Afaan Oromoo" width="16" height="12" class="me-2" src="/assets/flags/et-de962454375fdf95b8b98ea1202a7223f4e9ee6dd72882d908dc306d6138cc72.svg" />
+            <span>Afaan Oromoo</span>
+</a>        </li>
+
+      </ul>
+    </div>
+    
+    <a href="/en/users/sign_in">
+      <button class="btn btn-secondary btn-sm fs-sm rounded order-lg-3 d-none d-lg-inline-flex">
+        <i class="bx bx-log-in fs-lg me-2"></i> Sign In
+      </button>
+</a></div>
+      </header>
+      <div id="flash_messages">
+        <div id="flash-container">
+</div>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    setTimeout(function () {
+      document.querySelectorAll('.alert').forEach(function (el) {
+        el.classList.remove('show');
+        setTimeout(() => el.remove(), 150); // waits for CSS transition
+      });
+    }, 600);
+  });
+</script>
+
+<style>
+#flash-container {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  width: 400px;
+  max-width: 90%;
+}
+
+.custom-flash {
+  background-color: #fff !important;
+  border: 1px solid transparent;
+  border-left-width: 4px;
+  padding: 15px 20px;
+  margin-bottom: 10px;
+  font-weight: 500;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+
+.alert-success.custom-flash {
+  color: #5d89bd;
+  border-color: #5d89bd;
+}
+
+.alert-info.custom-flash {
+  color: #5d89bd;
+  border-color: #5d89bd;
+}
+
+.alert-warning.custom-flash {
+  color: #d73d3d;
+  border-color: #d73d3d;
+}
+
+.alert-danger.custom-flash {
+  color: #b94a48;
+  border-color: #b94a48;
+}
+
+.btn-close {
+  color: inherit;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  opacity: 0.7;
+}
+
+.btn-close:hover {
+  opacity: 1;
+}
+
+/* Close button */
+.custom-flash .close {
+  position: absolute;
+  top: 10px;
+  right: 10px; /* move in from the edge */
+  color: inherit;
+  opacity: 0.7;
+  font-weight: bold;
+}
+
+.custom-flash .close:hover {
+  opacity: 1;
+}
+
+</style>
+      </div>
+      <section class="position-relative py-5" style="background-image: url('https://ict.moh.gov.et/assets/pattern-1bad8bc852e9ddf5cdade58bc1fd7e01094f7cef4ce11d468316a18dd128e9a5.svg'); background-repeat: repeat-x; background-position: top; background-size: auto 100px;">
+  <div class="position-absolute top-0 start-0 w-100 h-100 bg-gradient-primary opacity-10"></div>
+  <div class="container position-relative py-lg-4">
+    <div class="row">
+      <!-- Left Column -->
+      <div class="col-lg-5 d-flex flex-column pt-lg-4 pt-xl-5">
+        <!-- Video button - slide in left -->
+        <div class="d-inline-flex align-items-center position-relative mb-3 slide-in-left">
+          <button type="button" class="btn btn-outline-secondarybtn btn-video btn-icon btn-lg" data-bs-toggle="modal" data-bs-target="#modalDefault">
+            <i class="bx bx-play"></i>
+          </button>
+          <h4 class="mb-0"></h4>
+        </div>
+
+        <h1 class="mb-4 slide-in-left delay-1">Ministry Of Health <span class='text-primary'> Digital Government</span> Platform</h1>
+
+        <p class="fs-lg mb-5 slide-in-left delay-2">A unified digital government platform for efficient government operations and public services.</p>
+
+        <div class="d-flex flex-wrap gap-3 mt-2 pb-sm-3 pb-md-4 py-4 py-lg-4 slide-in-left delay-2">
+          <a href="#resources">
+            <button type="button" class="btn btn-primary btn-lg d-md-inline-flex shadow-primary">
+              Explore Our Services
+              <i class="bx bx-right-arrow-alt fs-xl ms-2"></i>
+            </button>
+          </a>
+          <a class="btn btn-light btn-lg d-md-inline-flex shadow-primary" href="/en/users/sign_in">
+            Register Now
+            <i class="bx bx-right-arrow-alt ms-1 lead"></i>
+</a>        </div>
+
+        <!-- Avatar section - fixed mobile alignment -->
+        <div class="d-flex align-items-center justify-content-start text-start pt-3 flex-wrap py-4 py-lg-4 slide-in-left delay-4">
+          <div class="d-flex me-2 me-sm-3 flex-shrink-0 mb-2 mb-sm-0">
+            <div class="d-flex align-items-center justify-content-center bg-light rounded-circle" style="width: 52px; height: 52px;">
+              <img width="48" class="rounded-circle" title="Dr Hana Lelisa" src="/assets/avatar/hana-1e51a4ba4bd65100a27c8eba95e792aeed11e9e6d28d13950a8519cfd960a6af.png" />
+            </div>
+            <div class="d-flex align-items-center justify-content-center bg-light rounded-circle ms-n2 ms-sm-n3" style="width: 52px; height: 52px;">
+              <img width="48" class="rounded-circle" title="Dr Abel Mengstie" src="/assets/avatar/abel-365589332d190afbc59c2ed3e5e555df6a89b4e7871b44d92aa5c02d2349dd21.png" />
+            </div>
+            <div class="d-flex align-items-center justify-content-center bg-light rounded-circle ms-n2 ms-sm-n3" style="width: 52px; height: 52px;">
+              <img width="48" class="rounded-circle" title="Dr Selam Nigatu" src="/assets/avatar/drselam-795f55d03fa48f2f9d3f5328b6b0be137206a1b403f5da4ac837e0138ed15010.png" />
+            </div>
+          </div>
+          
+          <div class="d-flex align-items-baseline flex-wrap">
+            <strong id="user-count" data-count="4868" style="font-size: 3rem; font-weight: 700; line-height: 1;">0</strong>
+            <sup style="font-size: 1.5rem; font-weight: 600; line-height: 1; top: -0.5em;">+</sup>
+            <sup style="font-size: 0.9rem; color: #6c757d; margin-left: 0.25rem; top: -0.8em; white-space: nowrap;">
+              Members
+            </sup>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column - World animation slide in right -->
+      <div class="col-lg-7 slide-in-right delay-1">
+        <a href="/?locale=en">
+          <div class="parallax ratio ratio-1x1 mx-auto" style="max-width: 550px; transform: translate3d(0px, 0px, 0px) rotate(0.0001deg); transform-style: preserve-3d; backface-visibility: hidden; pointer-events: none;">
+
+            <!-- World spin -->
+            <div class="parallax-layer position-absolute zindex-2" data-depth="-0.15" style="transform: translate3d(1.3px, 0.4px, 0px);">
+              <img class="hero-animation-spin p-md-0 p-5" src="/assets/world-dc69f73ddcf3e0d838d6e97f7ec637571f2104e506cb2ed0a46da71a797d95cc.png" />
+            </div>
+
+            <!-- Outer circles -->
+            <div class="parallax-layer d-flex justify-content-center align-items-center position-absolute top-0 start-0 w-100 h-100" data-depth="0.1">
+              <div class="rounded-circle bg-primary" style="width: 70%; height: 70%; opacity: .16;"></div>
+            </div>
+
+            <div class="parallax-layer d-flex justify-content-center align-items-center position-absolute top-0 start-0 w-100 h-100" data-depth="0.2">
+              <div class="rounded-circle bg-primary" style="width: 55%; height: 55%; opacity: .26;"></div>
+            </div>
+
+            <!-- Center Mesob Logo -->
+            <div class="parallax-layer d-flex justify-content-center align-items-center position-absolute top-0 start-0 w-100 h-100 zindex-3" data-depth="0.4">
+              <div class="d-flex justify-content-center align-items-center rounded-circle bg-primary" style="width: 93px; height: 93px; box-shadow: 0 .1875rem 1.875rem -.125rem rgba(93,137,189,.95);">
+                <span class="text-light mb-0">
+                  <center></center>
+                </span>
+              </div>
+            </div>
+
+            <!-- Inner small circle -->
+            <div class="parallax-layer d-flex justify-content-center align-items-center position-absolute top-0 start-0 w-100 h-100" data-depth="0.3">
+              <div class="rounded-circle bg-primary" style="width: 40%; height: 40%; opacity: .56;"></div>
+            </div>
+            <div class="parallax-layer position-absolute top-0 start-0 w-100 h-100 zindex-4 d-flex justify-content-center align-items-center" data-depth="0.5" style="pointer-events: none;">
+              <div class="row row-cols-2 g-3 text-center" style="width: 95%;">
+                <div class="col">
+                  <div class="rounded-3 p-4 text-white hero-animation-fade bg-primary dark-bg-secondary">
+                    One Platform for All Public Services
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="rounded-3 p-4 text-white hero-animation-fade hero-animation-delay-1 bg-primary dark-bg-secondary">
+                    Fast, Transparent &amp; Citizen-Centered
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="rounded-3 p-4 text-white hero-animation-fade hero-animation-delay-2 bg-primary dark-bg-secondary">
+                    Empowering Health Workers Nationwide
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="rounded-3 p-4 text-white hero-animation-fade hero-animation-delay-3 bg-primary dark-bg-secondary">
+                    Digital Transformation For Better Governance
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+</a>      </div>
+    </div>
+  </div>
+</section>
+
+<div class="modal fade" id="modalDefault" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">MOH - Digital Government Platform</h5>
+        <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-video">
+          <video type="video/mp4" controls="controls" autobuffer="true" src="/mohict-intro.mp4"></video>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="/en/users/sign_in">
+          <button class="btn btn-primary btn-rounded btn-sm" type="button">Register</button>
+</a>        <button class="btn btn-secondary btn-sm" type="button" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<br> <br> <br> <br>
+
+<section class="container text-center pb-5 mb-3 mb-md-4 mb-lg-5 animate-on-scroll">
+  <h2 class="h1 pt-1 mb-4 animate-on-scroll">Digital Ethiopia 2030</h2>
+  <div class="row justify-content-center mb-md-2 mb-lg-5">
+    <div class="col-lg-6 col-md-8">
+      <p class="fs-lg text-muted mb-lg-0 animate-on-scroll">“The activities underway within Digital Ethiopia 2030 are intrinsically linked to the Medemer government's overarching objective of delivering high-impact strategies via a lean and efficient bureaucracy.” <br> Honorable Prime Minister Dr. Abiy Ahmed</p>
+    </div>
+  </div>
+  <div class="position-relative rounded-3 overflow-hidden mb-lg-3 animate-on-scroll">
+    <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center zindex-5">
+      <a href="https://www.youtube.com/watch?v=Duy4iSNHt_4" class="btn btn-video btn-icon btn-xl stretched-link bg-white" data-bs-toggle="video" aria-label="Play video" data-lg-id="ee777e78-2b15-4ae8-ab9e-c4700593a263">
+        <i class="bx bx-play"></i>
+      </a>
+    </div>
+    <span class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-35 animate-on-scroll"></span>
+    <img src="/assets/digitalethiopia2030-cd571e2c1df7e407b836fd8daf0237b1da1a1a3ed9967c22f485d3eb3cd521b3.png" />
+  </div>
+</section>
+
+<section class="container pb-2 pb-md-4 pb-lg-5 mb-3">
+  <div class="row justify-content-center pt-1 pb-1 mb-2 mb-md-3 mb-lg-4">
+    <div class="col-lg-8 col-md-9 text-center">
+      <h2 class="h1 mb-4 animate-on-scroll" id="resources">Resources</h2>
+      <p class="fs-lg text-muted mb-0 animate-on-scroll" style="transition-delay: 0.2s;">Explore our resources and services.</p>
+    </div>
+  </div>
+
+  <div class="row row-cols-1 row-cols-md-2 stagger-children">
+
+    <!-- eService -->
+    <div class="col py-4 my-2 my-sm-3">
+      <a class="card border-primary card-hover card-hover-primary h-100 border-0 shadow-sm text-decoration-none pt-5 px-sm-3 px-md-0 px-lg-3 pb-sm-3 pb-md-0 pb-lg-3 ms-xl-2 slide-in-left delay-1" href="/en/eservice/guests">
+        <div class="card-body pt-3">
+          <div class="d-inline-block bg-white shadow-primary rounded-3 position-absolute top-0 translate-middle-y p-3">
+            <img src="/assets/eservice/icon-721093fb6fe61df8453ffff2f235e52a67e2595398a627a980b25e7034d2fa51.svg" width="40" height="40" />
+          </div>
+          <h2 class="h4 text-primary d-inline-flex align-items-center">
+            <b>eService</b>
+            <i class="bx bx-right-arrow-circle text-primary fs-3 ms-2"></i>
+          </h2>
+          <p class="card-text fs-md mb-0 animate-on-scroll">
+            You can easily access our services anytime, anywhere using our integrated digital service platform.
+          </p>
+        </div>
+</a>    </div>
+
+
+    <!-- Volunteer -->
+    <div class="col py-4 my-2 my-sm-3">
+      <a class="card card-hover card-hover-primary h-100 border-0 shadow-sm text-decoration-none pt-5 px-sm-3 px-md-0 px-lg-3 pb-sm-3 pb-md-0 pb-lg-3 ms-xl-2 slide-in-right delay-2" href="/en/volunteer/guests">
+        <div class="card-body pt-3">
+          <div class="d-inline-block bg-white shadow-primary rounded-3 position-absolute top-0 translate-middle-y p-3">
+            <img src="/assets/volunteer/icon-37ecda4db0c7ccea9cfaffbdfb6bcffe3e231e0745e3d536db7b9599cfcb162f.svg" width="40" height="40" />
+          </div>
+          <h2 class="h4 text-primary d-inline-flex align-items-center">
+            <b>Volunteer</b>
+            <i class="bx bx-right-arrow-circle text-primary fs-3 ms-2"></i>
+          </h2>
+          <p class="card-text fs-md mb-0 animate-on-scroll">
+            Join our dedicated volunteers in promoting health and wellness across the community. Together, we can foster a healthier future for all.
+          </p>
+        </div>
+</a>    </div>
+
+
+    <!-- eLibrary -->
+    <div class="col py-4 my-2 my-sm-3">
+      <a class="card border-primary card-hover card-hover-primary h-100 border-0 shadow-sm text-decoration-none pt-5 px-sm-3 px-md-0 px-lg-3 pb-sm-3 pb-md-0 pb-lg-3 ms-xl-2 slide-in-left delay-3" href="/en/elibrary/guests">
+        <div class="card-body pt-3">
+          <div class="d-inline-block bg-white shadow-primary rounded-3 position-absolute top-0 translate-middle-y p-3">
+            <img src="/assets/elibrary/icon-c57ddc0800cd44c27eb0d6e16b916d667b3d7e122790b4ade347a3793d910efb.svg" width="40" height="40" />
+          </div>
+          <h2 class="h4 text-primary d-inline-flex align-items-center">
+            <b>eLibrary</b>
+            <i class="bx bx-right-arrow-circle text-primary fs-3 ms-2"></i>
+          </h2>
+          <p class="card-text fs-md mb-0 animate-on-scroll">
+            A centralized digital repository for accessing official health policies, publications, guidelines, and national standards.
+          </p>
+        </div>
+</a>    </div>
+
+
+    <!-- Job Board -->
+    <div class="col py-4 my-2 my-sm-3">
+      <a class="card card-hover card-hover-primary h-100 border-0 shadow-sm text-decoration-none pt-5 px-sm-3 px-md-0 px-lg-3 pb-sm-3 pb-md-0 pb-lg-3 ms-xl-2 slide-in-right delay-3" href="/en/job_board/guests">
+        <div class="card-body pt-3">
+          <div class="d-inline-block bg-white shadow-primary rounded-3 position-absolute top-0 translate-middle-y p-3">
+            <img src="/assets/jobs-8af2427c2e8332fd25357dc4e6185ed34100185a8351ef08f3b2e176eab3e6dd.svg" width="40" height="40" />
+          </div>
+          <h2 class="h4 text-primary d-inline-flex align-items-center">
+            <b>JobBoard</b>
+            <i class="bx bx-right-arrow-circle text-primary fs-3 ms-2"></i>
+          </h2>
+          <p class="card-text fs-md mb-0 animate-on-scroll">
+            Discover and apply for exciting career opportunities within the Ministry of Health. Our platform connects you with roles that contribute to enhancing healthcare services in the community.
+          </p>
+        </div>
+</a>    </div>
+
+
+    <!-- Visitor -->
+    <div class="col py-4 my-2 my-sm-3">
+      <a class="card card-hover card-hover-primary h-100 border-0 shadow-sm text-decoration-none pt-5 px-sm-3 px-md-0 px-lg-3 pb-sm-3 pb-md-0 pb-lg-3 ms-xl-2 slide-in-left delay-3" href="/en/visitor/guests">
+        <div class="card-body pt-3">
+          <div class="d-inline-block bg-white shadow-primary rounded-3 position-absolute top-0 translate-middle-y p-3">
+            <img src="/assets/visitor-84696af5e2c828b335cbf934b9b32a1f22eef3677a9ad01d8e56f20f187b75f0.svg" width="40" height="40" />
+          </div>
+          <h2 class="h4 text-primary d-inline-flex align-items-center">
+            <b>Visitor</b>
+            <i class="bx bx-right-arrow-circle text-primary fs-3 ms-2"></i>
+          </h2>
+          <p class="card-text fs-md mb-0 animate-on-scroll">
+            Make an appointment to visit the Ministry of Health or meet with officials.
+          </p>
+        </div>
+</a>    </div>
+
+
+    <!-- Grievance -->
+    <div class="col py-4 my-2 my-sm-4">
+      <a class="card card-hover card-hover-primary h-100 border-0 shadow-sm text-decoration-none pt-5 px-sm-3 px-md-0 px-lg-3 pb-sm-3 pb-md-0 pb-lg-3 ms-xl-2 slide-in-right delay-3" href="/en/grs/guests">
+        <div class="card-body pt-3">
+          <div class="d-inline-block bg-white shadow-primary rounded-3 position-absolute top-0 translate-middle-y p-3">
+            <img src="/assets/grs/icon-9a424976fbc4d5103d27d61c793d866bc1f5c4d42f951e8f65ec523bf074fc5e.svg" width="40" height="40" />
+          </div>
+          <h2 class="h4 text-primary d-inline-flex align-items-center">
+            <b>Grievance</b>
+            <i class="bx bx-right-arrow-circle text-primary fs-3 ms-2"></i>
+          </h2>
+          <p class="card-text fs-md mb-0 animate-on-scroll">
+            Grievance Redressing Service - Access a streamlined platform to voice your concerns and complaints related to health services. We are committed to ensuring your feedback leads to effective resolutions.
+          </p>
+        </div>
+</a>    </div>
+
+  </div>
+</section>
+
+<script>
+  // Count animation for user count
+  document.addEventListener('DOMContentLoaded', function() {
+    const countElement = document.getElementById('user-count');
+    if (countElement) {
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            const target = parseInt(countElement.dataset.count);
+            const duration = 2000;
+            const startTime = performance.now();
+            
+            function updateCount(currentTime) {
+              const elapsed = currentTime - startTime;
+              const progress = Math.min(elapsed / duration, 1);
+              const currentCount = Math.round(progress * target);
+              
+              if (progress < 1) {
+                countElement.textContent = currentCount.toLocaleString();
+                requestAnimationFrame(updateCount);
+              } else {
+                countElement.textContent = target.toLocaleString();
+              }
+            }
+            
+            requestAnimationFrame(updateCount);
+            observer.unobserve(countElement);
+          }
+        });
+      });
+      
+      observer.observe(countElement);
+    }
+  });
+</script>
+      
+    </main>
+
+    <footer class="footer dark-mode bg-dark border-top border-light pt-5 pb-4 pb-lg-5">
+      <div class="container pt-xl-4">
+        <div class="row pb-5">
+          
+          <!-- Brand & Description -->
+          <div class="col-lg-4 col-md-6">
+            <div class="navbar-brand text-dark p-0 me-0 mb-3 mb-lg-4 animate-on-scroll">
+              <img width="35" src="/assets/dgovlogo-775cdc6ea38f4110c93010afc6acf98e9a061629d9caf7dde9b0d3ec1ee2da86.png" /> 
+              Ministry Of Health - Ethiopia <sup><font size="1.5"> &#174;</font></sup>
+            </div>
+            <p class="fs-sm text-light opacity-70 pb-lg-3 mb-4 animate-on-scroll">
+              Health Citizens For Prosperous Nation <br> ICT Executive Office
+            </p>
+          </div>
+
+          <!-- Links -->
+          <div class="col-xl-6 col-lg-7 col-md-5 offset-xl-2 offset-md-1 pt-4 pt-md-1 pt-lg-0">
+            <div id="footer-links" class="row">
+              
+              <!-- Useful Links -->
+              <div class="col-lg-4">
+                <h6 class="mb-2">
+                  <a href="#useful-links" class="d-block text-dark dropdown-toggle d-lg-none py-2 animate-on-scroll" data-bs-toggle="collapse">
+                    Consent
+                  </a>
+                </h6>
+                <div id="useful-links" class="collapse d-lg-block" data-bs-parent="#footer-links">
+                  <ul class="nav flex-column mb-2 mb-lg-0 animate-on-scroll">
+                    <li class="nav-item">
+                      <a class="nav-link d-inline-block px-0 pt-1 pb-2" href="/eservice/guests">Terms &amp; Conditions</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link d-inline-block px-0 pt-1 pb-2" href="/eservice/guests">Policy</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Our Services -->
+              <div class="col-xl-4 col-lg-3">
+                <h6 class="mb-2">
+                  <a href="#our-services" class="d-block text-dark dropdown-toggle d-lg-none py-2" data-bs-toggle="collapse">
+                    Resources
+                  </a>
+                </h6>
+                <div id="our-services" class="collapse d-lg-block" data-bs-parent="#footer-links">
+                  <ul class="nav flex-column mb-2 mb-lg-0 animate-on-scroll">
+                    <li class="nav-item">
+                      <a class="nav-link d-inline-block px-0 pt-1 pb-2" href="/en/eservice/guests">eService</a>
+                    </li>
+
+                    <li class="nav-item">
+                      <a class="nav-link d-inline-block px-0 pt-1 pb-2" href="/en/visitor/guests">Visitor</a>
+                    </li>
+
+                    <li class="nav-item">
+                      <a class="nav-link d-inline-block px-0 pt-1 pb-2" href="/en/elibrary/guests">Digital Library</a>
+                    </li>
+
+                    <li class="nav-item">
+                      <a class="nav-link d-inline-block px-0 pt-1 pb-2" href="/en/grs/guests">Grievance</a>
+                    </li>
+
+                    <li class="nav-item">
+                      <a class="nav-link d-inline-block px-0 pt-1 pb-2" href="/en/volunteer/guests">Volunteer</a>
+                    </li>
+
+                    <li class="nav-item">
+                      <a class="nav-link d-inline-block px-0 pt-1 pb-2" href="/en/job_board/guests">Career</a>
+                    </li>
+
+                    <li class="nav-item">
+                      <a class="nav-link d-inline-block px-0 pt-1 pb-2" href="/en/events">Events</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Contact -->
+              <div class="col-xl-4 col-lg-5 pt-2 pt-lg-0">
+                <h3 class="h5 pb-1 pb-sm-2 pb-lg-3">Contact Us</h3>
+                <ul class="nav flex-column mb-3 animate-on-scroll">
+                  <li>
+                    <a href="tel:0251115517011" class="nav-link fs-lg fw-normal px-0 py-1 d-flex align-items-center">
+                      <i class="bx bx-phone-call fs-4 me-2"></i>
+                      <span>0251- 115-517011</span>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="mailto:ict@moh.gov.et" class="nav-link fs-lg fw-normal px-0 py-1 d-flex align-items-center">
+                      <i class="bx bx-envelope fs-4 me-2"></i>
+                      <span>ict@moh.gov.et</span>
+                    </a>
+                  </li>
+                </ul>
+                <div class="d-flex pt-2 pt-sm-3 pt-md-4 animate-on-scroll">
+                  <a href="https://web.facebook.com/EthiopiaFMoH" class="btn btn-icon btn-sm btn-secondary btn-facebook rounded-circle me-3" aria-label="Facebook">
+                    <i class="bx bxl-facebook"></i>
+                  </a>
+                  <a href="https://et.linkedin.com/company/federal-ministry-of-health-ethiopia" class="btn btn-icon btn-sm btn-secondary btn-linkedin rounded-circle me-3" aria-label="LinkedIn">
+                    <i class="bx bxl-linkedin"></i>
+                  </a>
+                  <a href="https://t.me/MoHEthiopia" class="btn btn-icon btn-sm btn-secondary btn-telegram rounded-circle me-3" aria-label="Telegram">
+                    <i class="bx bxl-telegram"></i>
+                  </a>
+                  <a href="https://www.youtube.com/@FMoHealthEthiopia" class="btn btn-icon btn-sm btn-secondary btn-youtube rounded-circle me-3" aria-label="YouTube">
+                    <i class="bx bxl-youtube"></i>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <p class="fs-xs text-center text-md-start pb-2 pb-lg-0 mb-0">
+          <span><font style="color: transparent !important;"><center>In God We Trust! &nbsp; Alemat G. Michael</center></font></span>
+        </p>
+      </div>
+    </footer>
+    <a href="#top" class="btn-scroll-top" data-scroll>
+      <span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span>
+      <i class="btn-scroll-top-icon bx bx-chevron-up"></i>
+    </a>
+    
+    <script src="/assets/acom/index-a109784f0377b53fa54638c7ee2ac923ce21802e5f19314a5848b7ff82ad2cc5.js"></script>
+<div id="cookieConsent" class="cookie-consent-banner">
+  <p> <span class="translation_missing" title="translation missing: en.landing.cookies_concent">Cookies Concent</span>
+    <br>
+    <br>
+    <button id="acceptCookies" class="btn btn-primary btn-sm ml-2"><span class="translation_missing" title="translation missing: en.landing.accept_all">Accept All</span></button>
+    <button id="rejectCookies" class="btn btn-secondary btn-sm ml-2"><span class="translation_missing" title="translation missing: en.landing.reject_all">Reject All</span></button>
+  </p>
+</div>
+
+<script>
+  // Slide-in animation on scroll
+  document.addEventListener('DOMContentLoaded', function() {
+    // Animate elements when they scroll into view
+    const animateElements = document.querySelectorAll('.animate-on-scroll');
+    
+    if (animateElements.length > 0) {
+      const scrollObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            scrollObserver.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      });
+      
+      animateElements.forEach(function(element) {
+        scrollObserver.observe(element);
+      });
+    }
+
+    // Stagger animation for children
+    const staggerContainers = document.querySelectorAll('.stagger-children');
+    staggerContainers.forEach(function(container) {
+      const children = container.children;
+      for (let i = 0; i < children.length; i++) {
+        children[i].style.animationDelay = (0.1 * (i + 1)) + 's';
+      }
+    });
+  });
+</script>
+</body>
+</html>
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const banner = document.getElementById("cookieConsent");
+  const acceptBtn = document.getElementById("acceptCookies");
+  const rejectBtn = document.getElementById("rejectCookies");
+
+  const consent = localStorage.getItem("cookieConsent");
+
+  if (!consent) {
+    banner.classList.add("show");
+  }
+
+  acceptBtn?.addEventListener("click", function () {
+    localStorage.setItem("cookieConsent", "accepted");
+    banner.classList.remove("show");
+  });
+
+  rejectBtn?.addEventListener("click", function () {
+    localStorage.setItem("cookieConsent", "rejected");
+    banner.classList.remove("show");
+  });
+});
+
+</script>
